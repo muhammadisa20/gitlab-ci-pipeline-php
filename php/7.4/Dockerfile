@@ -43,7 +43,8 @@ RUN bash ./packages.sh \
   && rm -rf ~/.composer/cache/* \
   && chown -R $IMAGE_USER:$IMAGE_USER /var/www $HOME \
   && curl -fsSL https://goss.rocks/install | GOSS_VER=v${GOSS_VERSION} sh \
-  && bash ./cleanup.sh
+  && bash ./cleanup.sh \
+  && apt-get install python3
 
 USER $IMAGE_USER
 
